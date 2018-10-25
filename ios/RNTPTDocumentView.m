@@ -20,12 +20,12 @@
     if (_documentController) {
         return;
     }
-    
+
     UIViewController *controller = self.findParentViewController;
     if (controller == nil || self.window == nil) {
         return;
     }
-    
+
     _documentController = [[PTTabbedDocumentViewController alloc] init];
     _documentController.tabsEnabled = NO;
     if (_showNavButton) {
@@ -33,29 +33,29 @@
         UIBarButtonItem *navButton = [[UIBarButtonItem alloc] initWithImage:navImage style:UIBarButtonItemStylePlain target:self action:@selector(navButtonClicked)];
         _documentController.navigationItem.leftBarButtonItem = navButton;
     }
-    
+
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:_documentController];
-    
+
     UIView *controllerView = navigationController.view;
-    
+
     [controller addChildViewController:navigationController];
     [self addSubview:controllerView];
-    
+
     controllerView.translatesAutoresizingMaskIntoConstraints = NO;
-    
+
     [NSLayoutConstraint activateConstraints:
      @[[controllerView.topAnchor constraintEqualToAnchor:self.topAnchor],
        [controllerView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor],
        [controllerView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor],
        [controllerView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor],
        ]];
-    
+
     [navigationController didMoveToParentViewController:controller];
-    
+
     // Open an existing local file URL.
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:_document withExtension:@"pdf"];
     NSError *error = nil;
-    BOOL success = [_documentController openDocumentWithURL:fileURL error:&error];
+    BOOL success = [_documentController openDocumentWithURL:_documentUrl error:&error];
     if (!success) {
         // Failed to open document.
     }
@@ -80,7 +80,7 @@
 
 - (void)dealloc
 {
-    
+
 }
 
 /*

@@ -16,11 +16,11 @@ RCT_EXPORT_MODULE()
 {
     // Create a new PDFViewCtrl
     RNTPTPDFViewCtrl* pdfViewCtrl = [[RNTPTPDFViewCtrl alloc] init];
-    
+
     _toolManager = [[ToolManager alloc] initWithPDFViewCtrl:pdfViewCtrl];
     [pdfViewCtrl setToolDelegate:_toolManager];
     [_toolManager changeTool: [PanTool class]];
-    
+
     return pdfViewCtrl;
 }
 
@@ -33,6 +33,13 @@ RCT_CUSTOM_VIEW_PROPERTY(document, NSString, RNTPTPDFViewCtrl)
         PTPDFDoc* docToOpen = [[PTPDFDoc alloc] initWithFilepath:pdfPath];
         // Set the document to display
         [view SetDoc:docToOpen];
+    }
+}
+
+RCT_CUSTOM_VIEW_PROPERTY(documentUrl, NSString, RNTPTPDFViewCtrl)
+{
+    if (json && [RCTConvert NSString:json]) {
+        [view OpenUrlAsync:json WithPDFPassword:nil];
     }
 }
 

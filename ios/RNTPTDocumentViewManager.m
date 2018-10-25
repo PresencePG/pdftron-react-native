@@ -20,6 +20,13 @@ RCT_CUSTOM_VIEW_PROPERTY(document, NSString, RNTPTDocumentView)
     }
 }
 
+RCT_CUSTOM_VIEW_PROPERTY(documentUrl, NSString, RNTPTDocumentView)
+{
+    if (json && [RCTConvert NSString:json]) {
+        view.documentUrl = [RCTConvert NSString:json];
+    }
+}
+
 RCT_CUSTOM_VIEW_PROPERTY(showLeadingNavButton, BOOL, RNTPTDocumentView)
 {
     if (json) {

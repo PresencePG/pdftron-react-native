@@ -20,6 +20,7 @@
 
 @property (readonly) PTTabbedDocumentViewController *documentController;
 @property NSString *document;
+@property NSString *documentUrl;
 @property BOOL showNavButton;
 @property NSString *navButtonPath;
 
