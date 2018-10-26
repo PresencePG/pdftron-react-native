@@ -21,6 +21,8 @@ RCT_EXPORT_MODULE()
     [pdfViewCtrl setToolDelegate:_toolManager];
     [_toolManager changeTool: [PanTool class]];
 
+    [pdfViewCtrl SetPagePresentationMode:e_trn_single_continuous];
+
     return pdfViewCtrl;
 }
 
