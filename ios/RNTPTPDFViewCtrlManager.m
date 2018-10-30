@@ -45,7 +45,7 @@ RCT_CUSTOM_VIEW_PROPERTY(documentUrl, NSString, RNTPTPDFViewCtrl)
     }
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(setCurrentPage, NSInteger, RNTPTPDFViewCtrl)
+RCT_CUSTOM_VIEW_PROPERTY(currentPage, NSInteger, RNTPTPDFViewCtrl)
 {
     if (json && [RCTConvert NSInteger:json]) {
         [NSTimer scheduledTimerWithTimeInterval:0.25 repeats:YES block:^(NSTimer * _Nonnull timer) {
