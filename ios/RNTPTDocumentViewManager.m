@@ -41,7 +41,7 @@ RCT_CUSTOM_VIEW_PROPERTY(leadingNavButtonIcon, NSString, RNTPTDocumentView)
     }
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(currentPage, NSInteger, RNTPTPDFViewCtrl)
+RCT_CUSTOM_VIEW_PROPERTY(currentPage, NSInteger, RNTPTDocumentView)
 {
     if (json && [RCTConvert NSInteger:json]) {
         [NSTimer scheduledTimerWithTimeInterval:0.25 repeats:YES block:^(NSTimer * _Nonnull timer) {
