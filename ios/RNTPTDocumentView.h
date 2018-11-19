@@ -23,6 +23,7 @@
 @property NSString *documentUrl;
 @property BOOL showNavButton;
 @property NSString *navButtonPath;
+@property NSInteger *currentPage;
 
 @property (nonatomic, copy) RCTBubblingEventBlock onChange;
 
